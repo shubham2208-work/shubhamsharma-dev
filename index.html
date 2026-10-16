@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio — projects, apps, tools, and GitHub work."
+    />
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <aside class="sidebar" aria-label="Primary navigation">
+      <div class="sidebar__avatar">
+        <img
+          class="avatar-img"
+          src="/profile-avatar.jpg"
+          alt="Shubham Sharma"
+          width="72"
+          height="72"
+          loading="eager"
+        />
+      </div>
+      <nav class="sidebar__nav">
+        <a href="#home" class="sidebar__link is-active" data-nav="home">HOME</a>
+        <a href="#about" class="sidebar__link" data-nav="about">ABOUT</a>
+        <a href="#portfolio" class="sidebar__link" data-nav="portfolio">WORK</a>
+        <a href="#contact" class="sidebar__link" data-nav="contact">CONTACT</a>
+      </nav>
+    </aside>
+
+    <aside class="rail" aria-label="Quick navigation">
+      <a href="#home" class="rail__btn" title="Home">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5L12 4l8 6.5V20a1 1 0 01-1 1h-5v-6H10v6H5a1 1 0 01-1-1v-9.5z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+      </a>
+      <a href="#about" class="rail__btn" title="About">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6 20c1.5-4 4.5-6 6-6s4.5 2 6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+      </a>
+      <a href="#portfolio" class="rail__btn" title="Portfolio">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 10h16" stroke="currentColor" stroke-width="1.5"/></svg>
+      </a>
+      <a href="#contact" class="rail__btn" title="Contact">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4V6z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+      </a>
+    </aside>
+
+    <main id="main" class="main">
+      <section id="home" class="section section--hero" data-section="home">
+        <div class="hero__grid">
+          <div class="hero__copy">
+            <p class="hero__greeting" id="hero-greeting"></p>
+            <h1 class="hero__title">
+              <span id="hero-title-line"></span>
+              <span class="hero__name" id="hero-name"></span>
+            </h1>
+            <p class="hero__role" id="hero-role"></p>
+            <a href="#about" class="btn btn--primary">MORE ABOUT ME</a>
+            <div class="hero__social" id="hero-social"></div>
+          </div>
+          <div class="hero__visual" aria-hidden="true">
+            <div class="hero-tech">
+              <div class="hero-tech__mesh"></div>
+              <svg class="hero-tech__network" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                <g class="hero-tech__lines">
+                  <line x1="200" y1="200" x2="80" y2="100" class="hero-tech__line" />
+                  <line x1="200" y1="200" x2="320" y2="90" class="hero-tech__line" />
+                  <line x1="200" y1="200" x2="340" y2="260" class="hero-tech__line" />
+                  <line x1="200" y1="200" x2="120" y2="300" class="hero-tech__line" />
+                  <line x1="200" y1="200" x2="280" y2="340" class="hero-tech__line" />
+                  <line x1="80" y1="100" x2="320" y2="90" class="hero-tech__line hero-tech__line--dim" />
+                  <line x1="340" y1="260" x2="280" y2="340" class="hero-tech__line hero-tech__line--dim" />
+                </g>
+                <circle cx="200" cy="200" r="14" class="hero-tech__node hero-tech__node--core" />
+                <circle cx="80" cy="100" r="7" class="hero-tech__node" />
+                <circle cx="320" cy="90" r="7" class="hero-tech__node" />
+                <circle cx="340" cy="260" r="7" class="hero-tech__node" />
+                <circle cx="120" cy="300" r="7" class="hero-tech__node" />
+                <circle cx="280" cy="340" r="6" class="hero-tech__node" />
+              </svg>
+              <div class="hero-tech__ring hero-tech__ring--1"></div>
+              <div class="hero-tech__ring hero-tech__ring--2"></div>
+              <div class="hero-tech__terminal">
+                <div class="hero-tech__titlebar">
+                  <span></span><span></span><span></span>
+                  <p>dev.sh</p>
+                </div>
+                <div class="hero-tech__body">
+                  <p><span class="hero-tech__prompt">$</span> npm run build</p>
+                  <p class="hero-tech__muted">✓ compiled · deploy ready</p>
+                  <p><span class="hero-tech__prompt">$</span> git push origin main</p>
+                  <p class="hero-tech__cursor-line"><span class="hero-tech__prompt">$</span><span class="hero-tech__cursor"></span></p>
+                </div>
+              </div>
+              <div class="hero-tech__chip">
+                <span class="hero-tech__chip-label">STACK</span>
+                <span>Web · Tools · APIs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section section--about" data-section="about">
+        <header class="section__head">
+          <h2 class="section__title">ABOUT ME</h2>
+        </header>
+        <div class="about-server" aria-hidden="true">
+          <div class="about-server__scene">
+            <div class="about-server__cloud">
+              <span class="about-server__cloud-label">Requests</span>
+              <div class="about-server__cloud-dots"><i></i><i></i><i></i></div>
+            </div>
+            <div class="about-server__link about-server__link--left">
+              <span class="about-server__packet"></span>
+              <span class="about-server__packet about-server__packet--delay"></span>
+            </div>
+            <div class="about-server__rack">
+              <div class="about-server__unit">
+                <span class="about-server__led about-server__led--on"></span>
+                <span class="about-server__led"></span>
+                <span class="about-server__slot"></span>
+                <span class="about-server__slot about-server__slot--short"></span>
+              </div>
+              <div class="about-server__unit about-server__unit--active">
+                <span class="about-server__led about-server__led--on"></span>
+                <span class="about-server__led about-server__led--pulse"></span>
+                <span class="about-server__slot"></span>
+                <span class="about-server__slot"></span>
+                <span class="about-server__fan"></span>
+              </div>
+              <div class="about-server__unit">
+                <span class="about-server__led about-server__led--on"></span>
+                <span class="about-server__led"></span>
+                <span class="about-server__slot"></span>
+                <span class="about-server__slot about-server__slot--short"></span>
+              </div>
+            </div>
+            <div class="about-server__link about-server__link--right">
+              <span class="about-server__packet about-server__packet--reverse"></span>
+              <span class="about-server__packet about-server__packet--reverse about-server__packet--delay"></span>
+            </div>
+            <div class="about-server__db">
+              <span class="about-server__db-top"></span>
+              <span class="about-server__db-body"></span>
+              <span class="about-server__db-label">Data</span>
+            </div>
+          </div>
+          <p class="about-server__caption"><span class="about-server__status-dot"></span> Deploy · API · Live</p>
+        </div>
+        <p class="about__bio" id="about-bio"></p>
+        <h3 class="subsection__title">WHAT I DO?</h3>
+        <div class="services" id="services-grid"></div>
+      </section>
+
+      <section id="resume" class="section section--resume section--hidden" data-section="resume" hidden aria-hidden="true">
+        <header class="section__head">
+          <h2 class="section__title">RESUME</h2>
+        </header>
+        <div class="resume__grid">
+          <div class="resume__col">
+            <h3 class="resume__heading">EDUCATION</h3>
+            <div id="education-list"></div>
+          </div>
+          <div class="resume__col">
+            <h3 class="resume__heading">EXPERIENCE</h3>
+            <div id="experience-list"></div>
+          </div>
+        </div>
+        <p class="resume__github">
+          Full code and contributions on
+          <a id="resume-github-link" href="#" target="_blank" rel="noopener noreferrer">GitHub</a>.
+        </p>
+      </section>
+
+      <section id="portfolio" class="section section--portfolio" data-section="portfolio">
+        <header class="section__head section__head--row">
+          <h2 class="section__title">PORTFOLIO</h2>
+          <nav class="filters" id="portfolio-filters" aria-label="Filter projects"></nav>
+        </header>
+        <div class="portfolio__grid" id="portfolio-grid"></div>
+      </section>
+
+      <section id="contact" class="section section--contact" data-section="contact">
+        <header class="section__head">
+          <h2 class="section__title">CONTACT</h2>
+        </header>
+        <div class="contact__card">
+          <p class="contact__lead">Let’s build something together.</p>
+          <a class="contact__email" id="contact-email" href="#"></a>
+          <p class="contact__location" id="contact-location"></p>
+          <div class="contact__links" id="contact-links"></div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>© <span id="year"></span> <span id="footer-name"></span>. Crafted with vector-first design.</p>
+      </footer>
+    </main>
+
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>
