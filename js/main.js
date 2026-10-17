@@ -91,10 +91,7 @@ function renderHero() {
   document.getElementById('hero-role').textContent = profile.role;
 
   const social = document.getElementById('hero-social');
-  const links = [
-    { label: 'GitHub', url: profile.github },
-    { label: 'RCM Calculator', url: profile.rcmCalculator },
-  ];
+  const links = [{ label: 'GitHub', url: profile.github }];
 
   social.innerHTML = links
     .map(
@@ -208,10 +205,7 @@ function renderContact() {
   document.getElementById('contact-location').textContent = profile.location;
 
   const links = document.getElementById('contact-links');
-  links.innerHTML = [
-    { label: `GitHub @${profile.githubHandle}`, url: profile.github },
-    { label: 'RCM Calculator', url: profile.rcmCalculator },
-  ]
+  links.innerHTML = [{ label: `GitHub @${profile.githubHandle}`, url: profile.github }]
     .map(
       (l) =>
         `<a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.label)}</a>`
