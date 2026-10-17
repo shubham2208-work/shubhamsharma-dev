@@ -34,7 +34,36 @@ const serviceIcons = {
   </svg>`,
 };
 
+function rcmCalculatorThumb() {
+  return `
+    <div class="calc-anim">
+      <div class="calc-anim__device">
+        <div class="calc-anim__screen">
+          <span class="calc-anim__label">Patient portion</span>
+          <div class="calc-anim__readout" aria-hidden="true">
+            <span class="calc-anim__value calc-anim__value--a">$86.40</span>
+            <span class="calc-anim__value calc-anim__value--b">$124.50</span>
+            <span class="calc-anim__value calc-anim__value--c">$52.00</span>
+          </div>
+          <div class="calc-anim__meta">
+            <span><em>Ins</em> 80%</span>
+            <span class="calc-anim__code">D0120</span>
+          </div>
+        </div>
+        <div class="calc-anim__keypad">
+          <span class="calc-anim__key"></span><span class="calc-anim__key"></span><span class="calc-anim__key calc-anim__key--active"></span>
+          <span class="calc-anim__key"></span><span class="calc-anim__key calc-anim__key--pulse"></span><span class="calc-anim__key"></span>
+          <span class="calc-anim__key"></span><span class="calc-anim__key"></span><span class="calc-anim__key calc-anim__key--equals">=</span>
+        </div>
+        <div class="calc-anim__scan"></div>
+      </div>
+    </div>`;
+}
+
 function projectThumb(project) {
+  if (project.id === 'rcm-calculator') {
+    return rcmCalculatorThumb();
+  }
   const accent = project.accent || C.ink;
   return `<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
     <rect width="400" height="300" fill="${accent}"/>
@@ -44,7 +73,6 @@ function projectThumb(project) {
     <rect x="56" y="102" width="160" height="6" fill="${C.mint}"/>
     <circle cx="320" cy="140" r="40" fill="none" stroke="${C.sage}" stroke-width="3"/>
     <path d="M300 140h40M320 120v40" stroke="${C.mint}" stroke-width="2"/>
-    <text x="200" y="260" text-anchor="middle" fill="${C.mint}" font-family="Montserrat,sans-serif" font-size="14" font-weight="700">${escapeHtml(project.title).slice(0, 24)}</text>
   </svg>`;
 }
 
