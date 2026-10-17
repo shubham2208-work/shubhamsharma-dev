@@ -252,14 +252,13 @@ function setupSectionReveal() {
 
 function setupNavHighlight() {
   const sections = document.querySelectorAll('[data-section]:not([hidden])');
-  const navLinks = document.querySelectorAll('.sidebar__link');
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const id = entry.target.dataset.section;
-          navLinks.forEach((link) => {
+          document.querySelectorAll('[data-nav]').forEach((link) => {
             link.classList.toggle('is-active', link.dataset.nav === id);
           });
         }
@@ -269,6 +268,60 @@ function setupNavHighlight() {
   );
 
   sections.forEach((s) => observer.observe(s));
+}
+
+function setupMobileNav() {
+  const sidebar = document.querySelector('.sidebar');
+  if (!sidebar) return;
+
+  const backdrop = document.createElement('div');
+  backdrop.className = 'nav-backdrop';
+  backdrop.hidden = true;
+  document.body.insertBefore(backdrop, sidebar);
+
+  const header = document.createElement('header');
+  header.className = 'mobile-header';
+  header.setAttribute('aria-label', 'Mobile navigation');
+  header.innerHTML = `
+    <button type="button" class="mobile-header__toggle" aria-expanded="false" aria-controls="mobile-sidebar" aria-label="Open navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="#home" class="mobile-header__brand">SHUBHAM</a>
+    <nav class="mobile-header__tabs" aria-label="Sections"></nav>
+  `;
+  sidebar.id = 'mobile-sidebar';
+  document.body.insertBefore(header, sidebar);
+
+  const tabs = header.querySelector('.mobile-header__tabs');
+  document.querySelectorAll('.sidebar__link').forEach((link) => {
+    const tab = link.cloneNode(true);
+    tab.classList.add('mobile-header__tab');
+    tabs.appendChild(tab);
+  });
+
+  const toggle = header.querySelector('.mobile-header__toggle');
+
+  const setOpen = (open) => {
+    document.body.classList.toggle('nav-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    backdrop.hidden = !open;
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+
+  toggle.addEventListener('click', () => {
+    setOpen(!document.body.classList.contains('nav-open'));
+  });
+
+  backdrop.addEventListener('click', () => setOpen(false));
+
+  document.querySelectorAll('.sidebar__link, .mobile-header__tab').forEach((link) => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setOpen(false);
+  });
 }
 
 function init() {
@@ -281,6 +334,7 @@ function init() {
   renderFilters();
   renderPortfolioGrid();
   renderContact();
+  setupMobileNav();
   setupSmoothScroll();
   setupSectionReveal();
   setupNavHighlight();

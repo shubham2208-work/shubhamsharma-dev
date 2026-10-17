@@ -1458,16 +1458,138 @@ body {
   }
 }
 
-@media (max-width: 768px) {
+/* Mobile + tablet navigation */
+.mobile-header,
+.nav-backdrop {
+  display: none;
+}
+
+@media (max-width: 900px) {
   :root {
     --sidebar-w: 0px;
+    --rail-w: 0px;
+    --mobile-header-h: 3.35rem;
+  }
+
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 220;
+    min-height: var(--mobile-header-h);
+    padding: 0.5rem 0.65rem;
+    padding-top: max(0.5rem, env(safe-area-inset-top));
+    background: linear-gradient(180deg, var(--green-900) 0%, var(--green-800) 100%);
+    border-bottom: 1px solid rgba(142, 182, 155, 0.25);
+    box-shadow: 0 8px 24px rgba(5, 31, 32, 0.2);
+  }
+
+  .mobile-header__toggle {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid rgba(142, 182, 155, 0.35);
+    border-radius: 8px;
+    background: rgba(218, 241, 222, 0.08);
+    cursor: pointer;
+  }
+
+  .mobile-header__toggle span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    margin: 0 auto;
+    background: var(--green-100);
+    border-radius: 1px;
+    transition: transform var(--transition), opacity var(--transition);
+  }
+
+  body.nav-open .mobile-header__toggle span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  body.nav-open .mobile-header__toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  body.nav-open .mobile-header__toggle span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .mobile-header__brand {
+    flex-shrink: 0;
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--green-100);
+    text-decoration: none;
+  }
+
+  .mobile-header__tabs {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-left: auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    max-width: min(62vw, 280px);
+  }
+
+  .mobile-header__tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile-header__tab {
+    flex-shrink: 0;
+    font-family: var(--font-display);
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: rgba(218, 241, 222, 0.85);
+    text-decoration: none;
+    padding: 0.4rem 0.45rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+  }
+
+  .mobile-header__tab.is-active,
+  .mobile-header__tab:hover {
+    color: var(--green-900);
+    background: var(--green-400);
+    border-color: rgba(218, 241, 222, 0.35);
+  }
+
+  .nav-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 240;
+    background: rgba(5, 31, 32, 0.55);
+    backdrop-filter: blur(2px);
+  }
+
+  .nav-backdrop[hidden] {
+    display: none;
   }
 
   .sidebar {
-    width: min(260px, 82vw);
+    width: min(280px, 86vw);
+    z-index: 260;
     transform: translateX(-105%);
     transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     pointer-events: none;
+    padding-top: max(1.25rem, env(safe-area-inset-top));
   }
 
   body.nav-open .sidebar {
@@ -1478,27 +1600,44 @@ body {
   .main {
     margin-left: 0;
     margin-right: 0;
+    padding-top: calc(var(--mobile-header-h) + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
   }
 
   .rail {
-    bottom: 1rem;
     top: auto;
-    transform: none;
-    flex-direction: row;
-    width: auto;
+    bottom: max(0.75rem, env(safe-area-inset-bottom));
     left: 50%;
     right: auto;
     transform: translateX(-50%);
+    flex-direction: row;
+    width: auto;
+    max-width: calc(100vw - 1.5rem);
     border-radius: 999px;
-    padding: 0.35rem 0.5rem;
+    padding: 0.35rem 0.55rem;
+    z-index: 210;
+    box-shadow: 0 12px 32px rgba(5, 31, 32, 0.35);
+  }
+
+  .rail__btn {
+    width: 44px;
+    height: 44px;
   }
 
   .section {
-    padding: 3rem 1.25rem 4rem;
+    padding: 2.5rem 1.15rem 3.25rem;
   }
 
   .hero__copy {
-    padding: 5rem 1.25rem 2rem;
+    padding: 1.5rem 1.15rem 2rem;
+  }
+
+  .hero__grid {
+    min-height: auto;
+  }
+
+  .section--hero {
+    min-height: auto;
   }
 
   .about-server__link {
