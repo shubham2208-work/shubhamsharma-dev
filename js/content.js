@@ -15,6 +15,8 @@ export const profile = {
   github: 'https://github.com/shubham2208-work',
   githubHandle: 'shubham2208-work',
   rcmCalculator: 'https://shubham2208-work.github.io/rcm-calculator/',
+  dentalVoi: 'https://shubham2208-work.github.io/dental-voi/',
+  badWithDates: 'https://bad-with-dates.vercel.app/',
   bazaarRadar: 'https://trend-finder-india.vercel.app/',
   resumeUrl: '#resume',
 };
@@ -93,7 +95,34 @@ export const projects = [
     links: [{ label: 'Open app', url: profile.rcmCalculator, primary: true }],
     accent: '#163832',
   },
+  {
+    id: 'dental-voi',
+    title: 'Dental VOI form and Extractor',
+    category: 'tools',
+    categories: ['web', 'tools', 'all'],
+    description:
+      'Verification of insurance form for dental practices — capture benefits, eligibility, and plan details in one workflow.',
+    image: null,
+    links: [{ label: 'Open app', url: profile.dentalVoi, primary: true }],
+    accent: '#0D2847',
+  },
+  {
+    id: 'bad-with-dates',
+    title: 'Bad with Dates',
+    category: 'tools',
+    categories: ['web', 'tools', 'all'],
+    description:
+      'Occasion tracker for birthdays and anniversaries — keep the dates, write the wish, and send it before the day slips by.',
+    image: null,
+    links: [{ label: 'Open app', url: profile.badWithDates, primary: true }],
+    accent: '#10162F',
+  },
 ];
+
+/** Primary “Open app” targets for hero / quick links (web apps visitors can jump to). */
+export function getWebAppProjects() {
+  return projects.filter((p) => p.categories?.includes('web'));
+}
 
 export const portfolioFilters = [
   { id: 'all', label: 'All' },

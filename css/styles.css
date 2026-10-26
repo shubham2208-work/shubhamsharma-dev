@@ -350,6 +350,62 @@ body {
   box-shadow: var(--shadow-hover);
 }
 
+
+.hero__webapps {
+  margin-top: 1.15rem;
+}
+
+.hero__webapps-label {
+  margin: 0 0 0.45rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-muted);
+}
+
+.hero__webapps-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.hero__webapp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--black);
+  text-decoration: none;
+  background: var(--white);
+  border: 1px solid rgba(5, 31, 32, 0.14);
+  border-radius: 999px;
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.hero__webapp-link:hover {
+  border-color: var(--accent-dark);
+  box-shadow: var(--shadow-card);
+  transform: translateY(-1px);
+}
+
+.hero__webapp-link--featured {
+  background: linear-gradient(135deg, #0a1628 0%, #122336 100%);
+  color: #f0c14b;
+  border-color: rgba(240, 193, 75, 0.45);
+}
+
+.hero__webapp-link--featured:hover {
+  border-color: #f0c14b;
+}
+
+.hero__webapp-arrow {
+  font-size: 0.85em;
+  opacity: 0.85;
+}
+
 .hero__social {
   display: flex;
   gap: 0.5rem 0.85rem;

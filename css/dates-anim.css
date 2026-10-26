@@ -1,0 +1,143 @@
+/* Bad with Dates card animation */
+.dates-anim {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.7rem 0.7rem;
+  background: linear-gradient(145deg, rgba(16, 22, 47, 0.72) 0%, rgba(10, 13, 28, 0.68) 100%);
+  overflow: hidden;
+}
+
+.dates-anim__calendar {
+  position: relative;
+  width: min(100%, 210px);
+  padding: 0.45rem 0.5rem 0.45rem;
+  background: rgba(255, 240, 229, 0.7);
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 1px rgba(16, 22, 47, 0.22), 0 10px 24px rgba(16, 22, 47, 0.28);
+}
+
+.dates-anim__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+}
+
+.dates-anim__month {
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.dates-anim__year {
+  font-family: ui-monospace, monospace;
+  font-size: 0.48rem;
+  font-weight: 600;
+  color: var(--navy-700);
+}
+
+.dates-anim__week,
+.dates-anim__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  text-align: center;
+}
+
+.dates-anim__week {
+  margin-bottom: 0.2rem;
+  font-family: ui-monospace, monospace;
+  font-size: 0.38rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--navy-700);
+  opacity: 0.7;
+}
+
+.dates-anim__grid span {
+  height: 11px;
+  font-family: ui-monospace, monospace;
+  font-size: 0.42rem;
+  line-height: 11px;
+  color: var(--navy);
+  border-radius: 2px;
+}
+
+.dates-anim__day--marked {
+  background: var(--yellow);
+  color: var(--navy);
+  font-weight: 800;
+  animation: dates-mark 2.4s ease-in-out infinite;
+}
+
+.dates-anim__wish {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  width: fit-content;
+  margin: 0.35rem auto 0;
+  padding: 0.18rem 0.45rem;
+  background: var(--yellow);
+  color: var(--navy);
+  border-radius: 999px;
+  animation: dates-wish 3.2s ease-in-out infinite;
+}
+
+.dates-anim__wish-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--navy);
+  flex-shrink: 0;
+}
+
+.dates-anim__wish-text {
+  font-family: var(--font-display);
+  font-size: 0.48rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+@keyframes dates-mark {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 211, 0, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(255, 211, 0, 0);
+  }
+}
+
+@keyframes dates-wish {
+  0%, 18% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  32%, 78% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dates-anim__day--marked,
+  .dates-anim__wish {
+    animation: none;
+  }
+
+  .dates-anim__wish {
+    opacity: 1;
+    transform: none;
+  }
+}

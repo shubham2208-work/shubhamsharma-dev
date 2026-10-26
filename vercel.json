@@ -2,5 +2,17 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "framework": "vite"
+  "framework": "vite",
+  "redirects": [
+    {
+      "source": "/bazaar-radar",
+      "destination": "https://trend-finder-india.vercel.app/",
+      "permanent": false
+    },
+    {
+      "source": "/apps/bazaar-radar",
+      "destination": "https://trend-finder-india.vercel.app/",
+      "permanent": false
+    }
+  ]
 }

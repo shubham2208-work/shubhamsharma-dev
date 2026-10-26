@@ -6,8 +6,11 @@ import {
   projects,
   portfolioFilters,
   showResume,
+  getWebAppProjects,
 } from './content.js';
 import '../css/bazaar-radar-anim.css';
+import '../css/voi-anim.css';
+import '../css/dates-anim.css';
 
 const C = {
   ink: '#051F20',
@@ -61,6 +64,49 @@ function rcmCalculatorThumb() {
     </div>`;
 }
 
+function dentalVoiThumb() {
+  return `
+    <div class="voi-anim" aria-hidden="true">
+      <div class="voi-anim__layout">
+        <div class="voi-anim__form">
+          <div class="voi-anim__form-head">
+            <svg class="voi-anim__tooth" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C9 2 7 4 6.5 7 6 10 7 13 7.5 16 8 19 9 22 10.5 22 11 19 11.5 16 12 13 12.5 10 12 7 11 4 12 2z"/></svg>
+            <span class="voi-anim__form-title">VOI</span>
+          </div>
+          <div class="voi-anim__field"><span class="voi-anim__field-label">Plan</span><span class="voi-anim__field-bar voi-anim__field-bar--1"></span><span class="voi-anim__field-check voi-anim__field-check--1">✓</span></div>
+          <div class="voi-anim__field"><span class="voi-anim__field-label">Benefits</span><span class="voi-anim__field-bar voi-anim__field-bar--2"></span><span class="voi-anim__field-check voi-anim__field-check--2">✓</span></div>
+        </div>
+        <div class="voi-anim__bridge"><span class="voi-anim__beam"></span><span class="voi-anim__extract-icon">→</span></div>
+        <div class="voi-anim__output">
+          <span class="voi-anim__output-label">Extract</span>
+          <div class="voi-anim__output-lines">
+            <span class="voi-anim__line voi-anim__line--1"></span>
+            <span class="voi-anim__line voi-anim__line--2"></span>
+          </div>
+        </div>
+      </div>
+      <div class="voi-anim__scan"></div>
+    </div>`;
+}
+
+function badWithDatesThumb() {
+  return `
+    <div class="dates-anim" aria-hidden="true">
+      <div class="dates-anim__calendar">
+        <div class="dates-anim__head">
+          <span class="dates-anim__month">Oct</span>
+          <span class="dates-anim__year">2026</span>
+        </div>
+        <div class="dates-anim__week"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
+        <div class="dates-anim__grid">
+          <span></span><span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span>
+          <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span class="dates-anim__day--marked">11</span>
+        </div>
+        <div class="dates-anim__wish"><span class="dates-anim__wish-dot"></span><span class="dates-anim__wish-text">Send wish</span></div>
+      </div>
+    </div>`;
+}
+
 function bazaarRadarThumb() {
   return `
     <div class="bazaar-anim" aria-hidden="true">
@@ -85,6 +131,12 @@ function bazaarRadarThumb() {
 function projectThumb(project) {
   if (project.id === 'rcm-calculator') {
     return rcmCalculatorThumb();
+  }
+  if (project.id === 'dental-voi') {
+    return dentalVoiThumb();
+  }
+  if (project.id === 'bad-with-dates') {
+    return badWithDatesThumb();
   }
   if (project.id === 'bazaar-radar') {
     return bazaarRadarThumb();
@@ -124,6 +176,28 @@ function renderHero() {
         `<a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.label)}</a>`
     )
     .join('');
+}
+
+function primaryProjectUrl(project) {
+  const primary = project.links.find((l) => l.primary) ?? project.links[0];
+  return primary?.url ?? '#';
+}
+
+function renderHeroWebApps() {
+  const el = document.getElementById('hero-webapps');
+  if (!el) return;
+
+  const apps = getWebAppProjects();
+  el.innerHTML = `
+    <p class="hero__webapps-label">Web apps</p>
+    <div class="hero__webapps-list">
+      ${apps
+        .map(
+          (p) =>
+            `<a class="hero__webapp-link${p.id === 'bazaar-radar' ? ' hero__webapp-link--featured' : ''}" href="${escapeHtml(primaryProjectUrl(p))}" target="_blank" rel="noopener noreferrer">${escapeHtml(p.title)}<span class="hero__webapp-arrow" aria-hidden="true">↗</span></a>`
+        )
+        .join('')}
+    </div>`;
 }
 
 function renderAbout() {
@@ -348,6 +422,7 @@ function init() {
   document.getElementById('footer-name').textContent = profile.firstName;
 
   renderHero();
+  renderHeroWebApps();
   renderAbout();
   renderResume();
   renderFilters();

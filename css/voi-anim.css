@@ -1,0 +1,346 @@
+/* Dental VOI form + extract card animation */
+.voi-anim {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.65rem;
+  background: linear-gradient(145deg, rgba(13, 40, 71, 0.72) 0%, rgba(10, 13, 28, 0.68) 100%);
+  overflow: hidden;
+}
+
+.voi-anim__layout {
+  display: flex;
+  align-items: stretch;
+  gap: 0.35rem;
+  width: min(100%, 260px);
+  position: relative;
+}
+
+.voi-anim__form {
+  flex: 1.15;
+  padding: 0.45rem 0.5rem;
+  background: rgba(255, 240, 229, 0.62);
+  border-radius: 8px;
+  min-width: 0;
+  box-shadow: inset 0 0 0 1px rgba(16, 22, 47, 0.22);
+}
+
+.voi-anim__form-head {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.4rem;
+}
+
+.voi-anim__tooth {
+  width: 14px;
+  height: 14px;
+  color: var(--green-600);
+  flex-shrink: 0;
+  animation: voi-tooth-pulse 2.4s ease-in-out infinite;
+}
+
+.voi-anim__form-title {
+  font-family: var(--font-display);
+  font-size: 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--green-900);
+}
+
+.voi-anim__field {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 0.35rem;
+}
+
+.voi-anim__field:last-child {
+  margin-bottom: 0;
+}
+
+.voi-anim__field-label {
+  font-family: ui-monospace, monospace;
+  font-size: 0.42rem;
+  font-weight: 600;
+  color: var(--green-700);
+  white-space: nowrap;
+}
+
+.voi-anim__field-bar {
+  display: block;
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(16, 22, 47, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.voi-anim__field-bar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(58, 16, 229, 0.35), rgba(255, 211, 0, 0.75));
+  animation: voi-fill 4.2s ease-in-out infinite;
+}
+
+.voi-anim__field-bar--1::after {
+  animation-delay: 0s;
+}
+
+.voi-anim__field-bar--2::after {
+  animation-delay: 0.35s;
+}
+
+.voi-anim__field-bar--3::after {
+  animation-delay: 0.7s;
+}
+
+.voi-anim__field-check {
+  font-size: 0.45rem;
+  font-weight: 800;
+  color: var(--green-600);
+  opacity: 0;
+  transform: scale(0.6);
+}
+
+.voi-anim__field-check--1 {
+  animation: voi-check 4.2s ease-in-out infinite 0.55s;
+}
+
+.voi-anim__field-check--2 {
+  animation: voi-check 4.2s ease-in-out infinite 0.9s;
+}
+
+.voi-anim__field-check--3 {
+  animation: voi-check 4.2s ease-in-out infinite 1.25s;
+}
+
+.voi-anim__bridge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.voi-anim__beam {
+  position: absolute;
+  left: 50%;
+  top: 18%;
+  bottom: 18%;
+  width: 2px;
+  margin-left: -1px;
+  background: linear-gradient(180deg, transparent, rgba(255, 211, 0, 0.25), transparent);
+  overflow: hidden;
+}
+
+.voi-anim__beam::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(180deg, transparent, rgba(255, 211, 0, 0.85), transparent);
+  animation: voi-beam 2.2s ease-in-out infinite;
+}
+
+.voi-anim__extract-icon {
+  width: 16px;
+  height: 16px;
+  color: rgba(255, 211, 0, 0.9);
+  animation: voi-extract-bounce 2.2s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+.voi-anim__output {
+  flex: 1;
+  padding: 0.45rem 0.45rem;
+  background: rgba(16, 22, 47, 0.55);
+  border-radius: 8px;
+  min-width: 0;
+  box-shadow: inset 0 0 0 1px rgba(255, 211, 0, 0.28);
+}
+
+.voi-anim__output-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.45rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 211, 0, 0.85);
+  margin-bottom: 0.35rem;
+}
+
+.voi-anim__output-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+}
+
+.voi-anim__line {
+  font-family: ui-monospace, monospace;
+  font-size: 0.44rem;
+  color: rgba(255, 250, 229, 0.92);
+  padding: 0.12rem 0.25rem;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  opacity: 0;
+  transform: translateX(6px);
+}
+
+.voi-anim__line--1 {
+  animation: voi-line 4.2s ease-in-out infinite 1.4s;
+}
+
+.voi-anim__line--2 {
+  animation: voi-line 4.2s ease-in-out infinite 1.75s;
+}
+
+.voi-anim__line--3 {
+  animation: voi-line 4.2s ease-in-out infinite 2.1s;
+}
+
+.voi-anim__scan {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 211, 0, 0.55), transparent);
+  animation: voi-scan 3.2s ease-in-out infinite;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+@keyframes voi-fill {
+  0%, 12% {
+    width: 0;
+  }
+  28%, 55% {
+    width: 100%;
+  }
+  70%, 100% {
+    width: 100%;
+    opacity: 0.85;
+  }
+}
+
+@keyframes voi-check {
+  0%, 18% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  26%, 58% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  68%, 100% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+}
+
+@keyframes voi-beam {
+  0%, 100% {
+    top: -40%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  55% {
+    top: 100%;
+    opacity: 0.35;
+  }
+}
+
+@keyframes voi-extract-bounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.75;
+  }
+  45% {
+    transform: translateY(3px);
+    opacity: 1;
+  }
+}
+
+@keyframes voi-line {
+  0%, 20% {
+    opacity: 0;
+    transform: translateX(6px);
+  }
+  32%, 62% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  72%, 100% {
+    opacity: 0;
+    transform: translateX(-4px);
+  }
+}
+
+@keyframes voi-tooth-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes voi-scan {
+  0%, 100% {
+    top: 22%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.65;
+  }
+  50% {
+    top: 72%;
+  }
+  85% {
+    opacity: 0.15;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voi-anim__field-bar::after,
+  .voi-anim__field-check,
+  .voi-anim__beam::after,
+  .voi-anim__extract-icon,
+  .voi-anim__line,
+  .voi-anim__tooth,
+  .voi-anim__scan {
+    animation: none !important;
+  }
+
+  .voi-anim__field-bar::after {
+    width: 100%;
+  }
+
+  .voi-anim__field-check {
+    opacity: 1;
+    transform: none;
+  }
+
+  .voi-anim__line {
+    opacity: 1;
+    transform: none;
+  }
+}
