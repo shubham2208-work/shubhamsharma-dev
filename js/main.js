@@ -6,7 +6,6 @@ import {
   projects,
   portfolioFilters,
   showResume,
-  getWebAppProjects,
 } from './content.js';
 import '../css/bazaar-radar-anim.css';
 import '../css/voi-anim.css';
@@ -176,28 +175,6 @@ function renderHero() {
         `<a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.label)}</a>`
     )
     .join('');
-}
-
-function primaryProjectUrl(project) {
-  const primary = project.links.find((l) => l.primary) ?? project.links[0];
-  return primary?.url ?? '#';
-}
-
-function renderHeroWebApps() {
-  const el = document.getElementById('hero-webapps');
-  if (!el) return;
-
-  const apps = getWebAppProjects();
-  el.innerHTML = `
-    <p class="hero__webapps-label">Web apps</p>
-    <div class="hero__webapps-list">
-      ${apps
-        .map(
-          (p) =>
-            `<a class="hero__webapp-link${p.id === 'bazaar-radar' ? ' hero__webapp-link--featured' : ''}" href="${escapeHtml(primaryProjectUrl(p))}" target="_blank" rel="noopener noreferrer">${escapeHtml(p.title)}<span class="hero__webapp-arrow" aria-hidden="true">↗</span></a>`
-        )
-        .join('')}
-    </div>`;
 }
 
 function renderAbout() {
@@ -422,7 +399,6 @@ function init() {
   document.getElementById('footer-name').textContent = profile.firstName;
 
   renderHero();
-  renderHeroWebApps();
   renderAbout();
   renderResume();
   renderFilters();

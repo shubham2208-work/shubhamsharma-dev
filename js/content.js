@@ -119,11 +119,6 @@ export const projects = [
   },
 ];
 
-/** Primary “Open app” targets for hero / quick links (web apps visitors can jump to). */
-export function getWebAppProjects() {
-  return projects.filter((p) => p.categories?.includes('web'));
-}
-
 export const portfolioFilters = [
   { id: 'all', label: 'All' },
   { id: 'web', label: 'Web apps' },
