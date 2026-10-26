@@ -96,7 +96,7 @@ export const projects = [
 ];
 
 export const portfolioFilters = [
-  { id: 'all', label: 'ALL' },
-  { id: 'web', label: 'WEB' },
-  { id: 'tools', label: 'TOOLS' },
+  { id: 'all', label: 'All' },
+  { id: 'web', label: 'Web apps' },
+  { id: 'tools', label: 'Tools' },
 ];

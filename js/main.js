@@ -7,6 +7,7 @@ import {
   portfolioFilters,
   showResume,
 } from './content.js';
+import '../css/bazaar-radar-anim.css';
 
 const C = {
   ink: '#051F20',
