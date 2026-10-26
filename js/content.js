@@ -4,10 +4,10 @@
 export const showResume = false;
 
 export const profile = {
-  firstName: 'SHUBHAM',
-  greeting: 'HI THERE!',
-  titleLine: "I'M",
-  role: 'DEVELOPER / BUILDER',
+  firstName: 'Shubham',
+  greeting: 'Hi there',
+  titleLine: "I'm",
+  role: 'Developer / builder',
   tagline:
     "I'm Shubham — I've started building some cool web apps and tools that solve real problems. I'm early in the journey, learning fast, and shipping what I make. This portfolio is home for everything I build: live demos, GitHub, and what's next.",
   email: 'shubham2208.work@gmail.com',
