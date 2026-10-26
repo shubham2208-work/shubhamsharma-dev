@@ -15,6 +15,7 @@ export const profile = {
   github: 'https://github.com/shubham2208-work',
   githubHandle: 'shubham2208-work',
   rcmCalculator: 'https://shubham2208-work.github.io/rcm-calculator/',
+  bazaarRadar: 'https://trend-finder-india.vercel.app/',
   resumeUrl: '#resume',
 };
 
@@ -65,6 +66,23 @@ export const experience = [
 ];
 
 export const projects = [
+  {
+    id: 'bazaar-radar',
+    title: 'Bazaar Radar',
+    category: 'web',
+    categories: ['web', 'all'],
+    description:
+      'Research app for Indian marketplace sellers — relative search interest by region, Amazon India & Flipkart listing snapshots, and estimated margins with honest data labels.',
+    image: null,
+    links: [
+      { label: 'Open app', url: profile.bazaarRadar, primary: true },
+      {
+        label: 'GitHub',
+        url: 'https://github.com/shubham2208-work/trend-finder-india',
+      },
+    ],
+    accent: '#0a1628',
+  },
   {
     id: 'rcm-calculator',
     title: 'RCM Calculator',

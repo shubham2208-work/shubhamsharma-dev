@@ -60,9 +60,33 @@ function rcmCalculatorThumb() {
     </div>`;
 }
 
+function bazaarRadarThumb() {
+  return `
+    <div class="bazaar-anim" aria-hidden="true">
+      <div class="bazaar-anim__panel">
+        <div class="bazaar-anim__head">
+          <span class="bazaar-anim__title">Bazaar Radar</span>
+          <span class="bazaar-anim__live">LIVE</span>
+        </div>
+        <div class="bazaar-anim__bars">
+          <span class="bazaar-anim__bar bazaar-anim__bar--1"></span>
+          <span class="bazaar-anim__bar bazaar-anim__bar--2"></span>
+          <span class="bazaar-anim__bar bazaar-anim__bar--3"></span>
+          <span class="bazaar-anim__bar bazaar-anim__bar--4"></span>
+        </div>
+        <div class="bazaar-anim__row"><span>Interest</span><span>78</span></div>
+        <div class="bazaar-anim__row"><span>Opportunity</span><span>84</span></div>
+      </div>
+      <div class="bazaar-anim__scan"></div>
+    </div>`;
+}
+
 function projectThumb(project) {
   if (project.id === 'rcm-calculator') {
     return rcmCalculatorThumb();
+  }
+  if (project.id === 'bazaar-radar') {
+    return bazaarRadarThumb();
   }
   const accent = project.accent || C.ink;
   return `<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
