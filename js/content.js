@@ -76,13 +76,7 @@ export const projects = [
     description:
       'Research app for Indian marketplace sellers — relative search interest by region, Amazon India & Flipkart listing snapshots, and estimated margins with honest data labels.',
     image: null,
-    links: [
-      { label: 'Open app', url: profile.bazaarRadar, primary: true },
-      {
-        label: 'GitHub',
-        url: 'https://github.com/shubham2208-work/trend-finder-india',
-      },
-    ],
+    links: [{ label: 'Open app', url: profile.bazaarRadar, primary: true }],
     accent: '#0a1628',
   },
   {
