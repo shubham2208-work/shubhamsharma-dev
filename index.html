@@ -19,6 +19,10 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
+    <!-- interactive background layers -->
+    <div class="bg-spotlight" aria-hidden="true"></div>
+    <div class="bg-aurora"    aria-hidden="true"></div>
+
     <aside class="sidebar" aria-label="Primary navigation">
       <div class="sidebar__avatar">
         <img
@@ -67,43 +71,38 @@
             <a href="#about" class="btn btn--primary">More about me</a>
             <div class="hero__social" id="hero-social"></div>
           </div>
-          <div class="hero__visual" aria-hidden="true">
-            <div class="hero-tech">
-              <div class="hero-tech__mesh"></div>
-              <svg class="hero-tech__network" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-                <g class="hero-tech__lines">
-                  <line x1="200" y1="200" x2="80" y2="100" class="hero-tech__line" />
-                  <line x1="200" y1="200" x2="320" y2="90" class="hero-tech__line" />
-                  <line x1="200" y1="200" x2="340" y2="260" class="hero-tech__line" />
-                  <line x1="200" y1="200" x2="120" y2="300" class="hero-tech__line" />
-                  <line x1="200" y1="200" x2="280" y2="340" class="hero-tech__line" />
-                  <line x1="80" y1="100" x2="320" y2="90" class="hero-tech__line hero-tech__line--dim" />
-                  <line x1="340" y1="260" x2="280" y2="340" class="hero-tech__line hero-tech__line--dim" />
-                </g>
-                <circle cx="200" cy="200" r="14" class="hero-tech__node hero-tech__node--core" />
-                <circle cx="80" cy="100" r="7" class="hero-tech__node" />
-                <circle cx="320" cy="90" r="7" class="hero-tech__node" />
-                <circle cx="340" cy="260" r="7" class="hero-tech__node" />
-                <circle cx="120" cy="300" r="7" class="hero-tech__node" />
-                <circle cx="280" cy="340" r="6" class="hero-tech__node" />
-              </svg>
-              <div class="hero-tech__ring hero-tech__ring--1"></div>
-              <div class="hero-tech__ring hero-tech__ring--2"></div>
-              <div class="hero-tech__terminal">
-                <div class="hero-tech__titlebar">
-                  <span></span><span></span><span></span>
-                  <p>dev.sh</p>
-                </div>
-                <div class="hero-tech__body">
-                  <p><span class="hero-tech__prompt">$</span> npm run build</p>
-                  <p class="hero-tech__muted">✓ compiled · deploy ready</p>
-                  <p><span class="hero-tech__prompt">$</span> git push origin main</p>
-                  <p class="hero-tech__cursor-line"><span class="hero-tech__prompt">$</span><span class="hero-tech__cursor"></span></p>
+          <div class="hero__visual">
+            <div class="gh-contrib">
+              <div class="gh-contrib__header">
+                <svg class="gh-contrib__icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span class="gh-contrib__username">shubham2208-work</span>
+                <span class="gh-contrib__badge"><span class="gh-contrib__live-dot"></span>Contributions</span>
+              </div>
+              <div class="gh-contrib__graph-wrap">
+                <img
+                  id="gh-contrib-img"
+                  class="gh-contrib__graph"
+                  src="https://ghchart.rshah.org/ffd300/shubham2208-work"
+                  alt="GitHub contribution graph for shubham2208-work"
+                  loading="lazy"
+                  onerror="this.closest('.gh-contrib__graph-wrap').classList.add('gh-contrib__graph-wrap--error')"
+                />
+                <div class="gh-contrib__scan-line"></div>
+                <div class="gh-contrib__shimmer"></div>
+                <div class="gh-contrib__error-msg">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+                  <span>Could not load contribution data</span>
                 </div>
               </div>
-              <div class="hero-tech__chip">
-                <span class="hero-tech__chip-label">STACK</span>
-                <span>Web · Tools · APIs</span>
+              <div class="gh-contrib__footer">
+                <span class="gh-contrib__dot gh-contrib__dot--low"></span>
+                <span class="gh-contrib__dot gh-contrib__dot--mid"></span>
+                <span class="gh-contrib__dot gh-contrib__dot--high"></span>
+                <span class="gh-contrib__dot gh-contrib__dot--max"></span>
+                <span class="gh-contrib__legend-label">Less</span>
+                <span class="gh-contrib__spacer"></span>
+                <span class="gh-contrib__legend-label">More</span>
+                <a href="https://github.com/shubham2208-work" target="_blank" rel="noopener noreferrer" class="gh-contrib__cta">View on GitHub ↗</a>
               </div>
             </div>
           </div>
@@ -208,5 +207,6 @@
     </main>
 
     <script type="module" src="/js/main.js"></script>
+    <script type="module" src="/js/bg-fx.js"></script>
   </body>
 </html>
