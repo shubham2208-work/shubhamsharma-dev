@@ -78,10 +78,7 @@ export const projects = [
     description:
       'Workout scheduler & muscle tracker — schedule day-by-day routines, track specific muscle groups on an interactive 2D anatomical heatmap, and log sets with a streamlined checklist.',
     image: null,
-    links: [
-      { label: 'Open app', url: profile.pulseGym, primary: true },
-      { label: 'GitHub', url: profile.pulseGymRepo },
-    ],
+    links: [{ label: 'Open app', url: profile.pulseGym, primary: true }],
     accent: '#0e1424',
   },
   {
