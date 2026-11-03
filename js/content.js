@@ -14,6 +14,8 @@ export const profile = {
   location: 'India',
   github: 'https://github.com/shubham2208-work',
   githubHandle: 'shubham2208-work',
+  pulseGym: 'https://pulsegym-shubham.vercel.app/',
+  pulseGymRepo: 'https://github.com/shubham2208-work/PulseGym',
   rcmCalculator: 'https://shubham2208-work.github.io/rcm-calculator/',
   dentalVoi: 'https://shubham2208-work.github.io/dental-voi/',
   badWithDates: 'https://bad-with-dates.vercel.app/',
@@ -68,6 +70,20 @@ export const experience = [
 ];
 
 export const projects = [
+  {
+    id: 'pulse-gym',
+    title: 'PulseGym',
+    category: 'web',
+    categories: ['web', 'all'],
+    description:
+      'Workout scheduler & muscle tracker — schedule day-by-day routines, track specific muscle groups on an interactive 2D anatomical heatmap, and log sets with a streamlined checklist.',
+    image: null,
+    links: [
+      { label: 'Open app', url: profile.pulseGym, primary: true },
+      { label: 'GitHub', url: profile.pulseGymRepo },
+    ],
+    accent: '#0e1424',
+  },
   {
     id: 'bazaar-radar',
     title: 'Bazaar Radar',

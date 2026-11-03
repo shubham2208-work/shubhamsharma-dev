@@ -10,6 +10,7 @@ import {
 import '../css/bazaar-radar-anim.css';
 import '../css/voi-anim.css';
 import '../css/dates-anim.css';
+import '../css/pulsegym-anim.css';
 
 const C = {
   ink: '#051F20',
@@ -127,7 +128,46 @@ function bazaarRadarThumb() {
     </div>`;
 }
 
+function pulseGymThumb() {
+  return `
+    <div class="pulse-anim" aria-hidden="true">
+      <div class="pulse-anim__panel">
+        <div class="pulse-anim__head">
+          <div class="pulse-anim__brand">
+            <svg class="pulse-anim__heart" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span class="pulse-anim__title">PULSEGYM</span>
+          </div>
+          <span class="pulse-anim__status"><span class="pulse-anim__dot"></span>WORKOUT</span>
+        </div>
+        <div class="pulse-anim__ecg">
+          <svg class="pulse-anim__ecg-svg" viewBox="0 0 200 30">
+            <path class="pulse-anim__ecg-path" d="M0,15 L35,15 L45,15 L52,5 L60,25 L68,8 L75,20 L82,15 L120,15 L128,15 L135,4 L143,26 L151,9 L158,19 L165,15 L200,15"/>
+          </svg>
+        </div>
+        <div class="pulse-anim__metrics">
+          <div class="pulse-anim__row">
+            <span>Muscle Target</span>
+            <span class="pulse-anim__highlight">Chest & Delts</span>
+          </div>
+          <div class="pulse-anim__bar-bg">
+            <div class="pulse-anim__bar-fill"></div>
+          </div>
+        </div>
+        <div class="pulse-anim__footer">
+          <span>Set 3 of 4</span>
+          <span class="pulse-anim__check">Heatmap Active ✓</span>
+        </div>
+      </div>
+      <div class="pulse-anim__scan"></div>
+    </div>`;
+}
+
 function projectThumb(project) {
+  if (project.id === 'pulse-gym') {
+    return pulseGymThumb();
+  }
   if (project.id === 'rcm-calculator') {
     return rcmCalculatorThumb();
   }

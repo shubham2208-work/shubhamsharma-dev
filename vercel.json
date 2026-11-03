@@ -13,6 +13,16 @@
       "source": "/apps/bazaar-radar",
       "destination": "https://trend-finder-india.vercel.app/",
       "permanent": false
+    },
+    {
+      "source": "/pulsegym",
+      "destination": "https://pulsegym-shubham.vercel.app/",
+      "permanent": false
+    },
+    {
+      "source": "/apps/pulsegym",
+      "destination": "https://pulsegym-shubham.vercel.app/",
+      "permanent": false
     }
   ]
 }
