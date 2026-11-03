@@ -11,6 +11,8 @@ import '../css/bazaar-radar-anim.css';
 import '../css/voi-anim.css';
 import '../css/dates-anim.css';
 import '../css/pulsegym-anim.css';
+import '../css/visitor-graph.css';
+import { initVisitorGraph } from './visitor-graph.js';
 
 const C = {
   ink: '#051F20',
@@ -444,6 +446,7 @@ function init() {
   renderFilters();
   renderPortfolioGrid();
   renderContact();
+  initVisitorGraph();
   setupMobileNav();
   setupSmoothScroll();
   setupSectionReveal();

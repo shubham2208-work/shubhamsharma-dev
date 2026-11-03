@@ -105,6 +105,97 @@
                 <a href="https://github.com/shubham2208-work" target="_blank" rel="noopener noreferrer" class="gh-contrib__cta">View on GitHub ↗</a>
               </div>
             </div>
+
+            <!-- Website Visitors Dashboard -->
+            <div class="vis-card" id="vis-card">
+              <div class="vis-card__header">
+                <div class="vis-card__title-group">
+                  <svg class="vis-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                  </svg>
+                  <span class="vis-card__title">Traffic & Visitors</span>
+                  <span class="vis-card__live-badge"><span class="vis-card__live-dot"></span>LIVE</span>
+                </div>
+                <div class="vis-card__stats">
+                  <div class="vis-card__stat-pill">
+                    <span class="vis-card__stat-label">Visitors</span>
+                    <span class="vis-card__stat-val" id="vis-stat-total">4,620</span>
+                  </div>
+                  <div class="vis-card__stat-pill vis-card__stat-pill--growth">
+                    <span class="vis-card__stat-label">Trend</span>
+                    <span class="vis-card__stat-val" id="vis-stat-growth">+18.4%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Interactive Chart Container -->
+              <div class="vis-card__chart-wrap" id="vis-chart-wrap">
+                <svg class="vis-card__svg" id="vis-svg" viewBox="0 0 500 160" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="vis-grad-primary" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.6"/>
+                      <stop offset="60%" stop-color="#3b82f6" stop-opacity="0.22"/>
+                      <stop offset="100%" stop-color="#1d4ed8" stop-opacity="0.0"/>
+                    </linearGradient>
+                    <linearGradient id="vis-grad-secondary" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#ffd300" stop-opacity="0.32"/>
+                      <stop offset="100%" stop-color="#ffd300" stop-opacity="0.0"/>
+                    </linearGradient>
+                    <linearGradient id="vis-stroke-primary" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#38bdf8"/>
+                      <stop offset="60%" stop-color="#60a5fa"/>
+                      <stop offset="100%" stop-color="#ffd300"/>
+                    </linearGradient>
+                  </defs>
+
+                  <!-- Horizontal grid lines -->
+                  <g class="vis-card__grid">
+                    <line x1="45" y1="20" x2="490" y2="20" stroke-dasharray="3 3"/>
+                    <line x1="45" y1="65" x2="490" y2="65" stroke-dasharray="3 3"/>
+                    <line x1="45" y1="110" x2="490" y2="110" stroke-dasharray="3 3"/>
+                  </g>
+
+                  <!-- Y-Axis labels -->
+                  <g class="vis-card__y-labels" id="vis-y-labels">
+                    <text x="38" y="24" text-anchor="end">1.0k</text>
+                    <text x="38" y="69" text-anchor="end">500</text>
+                    <text x="38" y="114" text-anchor="end">100</text>
+                  </g>
+
+                  <!-- Dual layered wave areas -->
+                  <path id="vis-area-bg" class="vis-card__area-bg" fill="url(#vis-grad-secondary)" opacity="0.4"/>
+                  <path id="vis-line-bg" class="vis-card__line-bg" fill="none" stroke="rgba(255,211,0,0.5)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+                  <path id="vis-area-main" class="vis-card__area-main" fill="url(#vis-grad-primary)"/>
+                  <path id="vis-line-main" class="vis-card__line-main" fill="none" stroke="url(#vis-stroke-primary)" stroke-width="2.5" stroke-linecap="round"/>
+
+                  <!-- Interactive guide line + dot -->
+                  <line id="vis-guide-line" class="vis-card__guide-line" x1="0" y1="15" x2="0" y2="135" stroke="#ff4757" stroke-width="1.5" stroke-dasharray="3 3" opacity="0"/>
+                  <circle id="vis-guide-point" class="vis-card__guide-point" cx="0" cy="0" r="5" fill="#ffd300" stroke="#0e1424" stroke-width="2" opacity="0"/>
+                  <circle id="vis-guide-pulse" class="vis-card__guide-pulse" cx="0" cy="0" r="10" fill="none" stroke="#ffd300" stroke-width="1.5" opacity="0"/>
+                </svg>
+
+                <!-- Floating Tooltip (matching reference image) -->
+                <div class="vis-card__tooltip" id="vis-tooltip">
+                  <span class="vis-card__tooltip-marker"></span>
+                  <span class="vis-card__tooltip-text" id="vis-tooltip-text">Visitors: <strong>480</strong></span>
+                </div>
+
+                <!-- X-Axis Labels -->
+                <div class="vis-card__x-labels" id="vis-x-labels"></div>
+              </div>
+
+              <!-- Filter Tabs Downside -->
+              <div class="vis-card__footer">
+                <span class="vis-card__range-label">Timeframe:</span>
+                <div class="vis-card__filters" role="tablist" aria-label="Visitor analytics timeframe">
+                  <button type="button" class="vis-card__filter-btn" data-filter="day">Day</button>
+                  <button type="button" class="vis-card__filter-btn is-active" data-filter="weekly">Weekly</button>
+                  <button type="button" class="vis-card__filter-btn" data-filter="monthly">Monthly</button>
+                  <button type="button" class="vis-card__filter-btn" data-filter="quarterly">Quarterly</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

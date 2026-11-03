@@ -1226,10 +1226,16 @@ body {
     }
 }
 
-/* hero visual wrapper adjustments for the new card */
+/* hero visual wrapper adjustments for the cards */
 .section--hero .hero__visual {
     background: transparent;
-    padding: 1.5rem;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 /* ─── /GitHub Contribution Dashboard ────────────────────────────────────── */
